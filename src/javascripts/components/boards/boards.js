@@ -1,11 +1,13 @@
 import $ from 'jquery';
 import firebase from 'firebase/app';
 import 'firebase/auth';
+import './boards.scss';
 
 const authDiv = $('#auth');
 const boardsDiv = $('#login');
 const logoutBtn = $('#logout');
 const titleDiv = $('#title');
+
 
 const checkUserLoginStatus = () => {
   firebase.auth().onAuthStateChanged((user) => {
