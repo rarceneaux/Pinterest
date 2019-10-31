@@ -2,6 +2,7 @@ import firebase from 'firebase';
 
 import auth from './components/Auth/auth';
 import home from './components/home/home';
+import boards from './components/boards/boards';
 
 import apiKeys from './helpers/apiKeys.json';
 
@@ -11,5 +12,6 @@ const init = () => {
   firebase.initializeApp(apiKeys.firebaseKeys);
   auth.loginBtn();
   home.logoutEvent();
+  boards.checkUserLoginStatus();
 };
 init();

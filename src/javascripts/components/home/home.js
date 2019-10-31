@@ -11,11 +11,10 @@ const logoutEvent = () => {
     e.preventDefault();
     firebase.auth().signOut()
       .then(() => {
-        authDiv.removeClass('hide');
         logoutBtn.addClass('hide');
+        authDiv.removeClass('hide');
         title.removeClass('hide');
       }).catch((err) => console.error('you still logged in', err));
   });
 };
-
 export default { logoutEvent };
