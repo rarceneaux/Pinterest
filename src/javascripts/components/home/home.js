@@ -1,6 +1,7 @@
 import $ from 'jquery';
 import firebase from 'firebase';
 import 'firebase/auth';
+import './home.scss';
 
 const authDiv = $('#auth');
 const logoutBtn = $('#logout');
