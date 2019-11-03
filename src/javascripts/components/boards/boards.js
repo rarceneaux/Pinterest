@@ -4,7 +4,7 @@ import 'firebase/auth';
 import './boards.scss';
 
 const authDiv = $('#auth');
-const boardsDiv = $('#login');
+const boardsDiv = $('#loggedin');
 const logoutBtn = $('#logout');
 const titleDiv = $('#title');
 
