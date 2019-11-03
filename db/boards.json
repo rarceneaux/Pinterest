@@ -1,0 +1,22 @@
+{
+  "board1": {
+    "id": 1,
+    "name": "Javascript",
+    "uid": "LQlewZ40A4bfkfdabHjvi7naLYY2"
+  },
+  "board2": {
+    "id": 2,
+    "name": "NFL",
+    "uid": "LQlewZ40A4bfkfdabHjvi7naLYY2"
+  },
+  "board3": {
+    "id": 3,
+    "name": "PJ Masks",
+    "uid": "LQlewZ40A4bfkfdabHjvi7naLYY2"
+  },
+  "board4": {
+    "id": 4,
+    "name": "Diabetes Health",
+    "uid": "LQlewZ40A4bfkfdabHjvi7naLYY2"
+  }
+}
