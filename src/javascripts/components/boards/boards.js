@@ -19,7 +19,7 @@ const buildBoards = (uid) => {
         domString += `<div class="card${board.id}-boards">
         <div class="card-body text-center">
           <h5 class="card-title">${board.name}</h5>
-          <img src="..." class="card-img-top" alt="...">
+          <img src="${board.img}" class="card-img-top" alt="...">
           <p class="card-text${board.uid}"></p>
         </div>
       </div>`;
