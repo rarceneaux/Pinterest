@@ -1,4 +1,13 @@
-h1#boardsTitle {
-  display: flex;
+.card-body{
+  background-color: lightskyblue;
+  width:350px;
+  height: 350px;
+  margin: 25px;
+  box-shadow: 0 4px 8px 0 rgba(0,0,0,0.6);
+  transition: 0.4s;
+  border-radius: 25px;
+}
+
+#boards-section{
   justify-content: center;
 };
