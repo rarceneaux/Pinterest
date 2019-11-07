@@ -1,10 +1,19 @@
 @import "~bootstrap/scss/bootstrap";
 
-body{
-  background-color: lightgray;
-};
+// body{
+//   background-color: lightgray;
+// };
 
 .hide{
   display: none;
 };
 
+// #auth{
+//   display:flex;
+//   flex-direction: row;
+//   justify-content: center;
+// }
+
+.heading{
+  text-align: center;
+}

@@ -17,4 +17,6 @@ const loginBtn = () => {
   $('#google-auth').click(login);
 };
 
-export default { loginBtn };
+const getCurrentUid = () => firebase.auth().currentUser.uid;
+
+export default { loginBtn, getCurrentUid };
