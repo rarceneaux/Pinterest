@@ -5,9 +5,8 @@ const baseUrl = apiKeys.firebaseKeys.databaseURL;
 
 const getBoardsByUid = (uid) => new Promise((resolve, reject) => {
   axios.get(`${baseUrl}/boards.json?orderBy="uid"&equalTo="${uid}"`)
-  // axios.get(`${baseUrl}/boards.json`)
     .then((response) => {
-      // console.log('boardData.js', response.data);
+      // console.log(response.data);
       const daBoards = response.data;
       const boards = [];
       Object.keys(daBoards).forEach((fbId) => {
@@ -20,5 +19,7 @@ const getBoardsByUid = (uid) => new Promise((resolve, reject) => {
     })
     .catch((error) => reject(error));
 });
+
+// const getSingleBoard = (uid) => boards.filter((board) => board.uid === uid);
 
 export default { getBoardsByUid };

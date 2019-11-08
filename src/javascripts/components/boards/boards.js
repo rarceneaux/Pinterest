@@ -2,8 +2,9 @@ import $ from 'jquery';
 import firebase from 'firebase/app';
 import 'firebase/auth';
 import './boards.scss';
-import utils from '../../helpers/utils';
 import boardsData from '../../helpers/data/boardsData';
+import utils from '../../helpers/utils';
+// import pinsData from '../../helpers/data/pinsData';
 
 const authDiv = $('#auth');
 const boardsDiv = $('#boards');
@@ -16,11 +17,11 @@ const buildBoards = (uid) => {
       let domString = '<h2 class="heading">Boards</h2>';
       domString += '<div id="board-section" class="d-flex flex-wrap">';
       boards.forEach((board) => {
-        domString += `<div class="card${board.id}-boards">
+        domString += `<div id="${board.id}" class="card-boards">
         <div class="card-body text-center">
           <h5 class="card-title">${board.name}</h5>
           <img src="${board.img}" class="card-img-top" alt="...">
-          <p class="card-text${board.uid}"></p>
+          <p class="card-text"${board.uid}></p>
         </div>
       </div>`;
       });
@@ -37,7 +38,6 @@ const checkUserLoginStatus = () => {
       boardsDiv.removeClass('hide');
       logoutBtn.removeClass('hide');
       titleDiv.addClass('hide');
-      // boardsData.getBoardsByUid(user.uid);
       buildBoards(user.uid);
     } else {
       authDiv.removeClass('hide');
@@ -48,5 +48,11 @@ const checkUserLoginStatus = () => {
   });
 };
 
+$('body').on('click', '.card-boards', (e) => {
+  const singleBoard = boardsData.getBoardsByUid(e.target.id);
+  console.log('test');
+  utils.printToDom('boards', '');
+  utils.printToDom('single', singleBoard);
+});
 
-export default { checkUserLoginStatus };
+export default { checkUserLoginStatus, buildBoards };
