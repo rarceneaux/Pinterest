@@ -1,4 +1,5 @@
 import $ from 'jquery';
+import firebase from 'firebase';
 import 'firebase/auth';
 import './boards.scss';
 import boardsData from '../../helpers/data/boardsData';
@@ -10,7 +11,8 @@ const displayPins = (e) => {
   selectedBoard.selectedBoard(boardId);
 };
 
-const buildBoards = (uid) => {
+const buildBoards = () => {
+  const { uid } = firebase.auth().currentUser;
   boardsData.getBoardsByUid(uid)
     .then((boards) => {
       let domString = '<h2 class="heading">Boards</h2>';

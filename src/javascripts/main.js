@@ -6,6 +6,7 @@ import apiKeys from './helpers/apiKeys.json';
 import pinsData from './helpers/data/pinsData';
 import boardsData from './helpers/data/boardsData';
 import authData from './helpers/data/authData';
+import returnToBoards from './components/boards/returnBoards';
 import '../styles/main.scss';
 
 
@@ -16,5 +17,6 @@ const init = () => {
   authData.checkUserLoginStatus();
   pinsData.getPinsByBoardId('board3');
   boardsData.getBoardByBoardId('board4').then();
+  returnToBoards.returnToBoards();
 };
 init();
