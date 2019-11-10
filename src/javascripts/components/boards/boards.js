@@ -1,17 +1,18 @@
 import $ from 'jquery';
-import firebase from 'firebase/app';
+import firebase from 'firebase';
 import 'firebase/auth';
 import './boards.scss';
 import boardsData from '../../helpers/data/boardsData';
+import selectedBoard from '../singleBoard/singleBoard';
 import utils from '../../helpers/utils';
-// import pinsData from '../../helpers/data/pinsData';
 
-const authDiv = $('#auth');
-const boardsDiv = $('#boards');
-const logoutBtn = $('#logout');
-const titleDiv = $('#title');
+const displayPins = (e) => {
+  const boardId = e.target.id;
+  selectedBoard.selectedBoard(boardId);
+};
 
-const buildBoards = (uid) => {
+const buildBoards = () => {
+  const { uid } = firebase.auth().currentUser;
   boardsData.getBoardsByUid(uid)
     .then((boards) => {
       let domString = '<h2 class="heading">Boards</h2>';
@@ -22,37 +23,14 @@ const buildBoards = (uid) => {
           <h5 class="card-title">${board.name}</h5>
           <img src="${board.img}" class="card-img-top" alt="...">
           <p class="card-text"${board.uid}></p>
+          <button type="button" id="${board.id}" class="btn btn-primary show-pins">Pins</button>
         </div>
       </div>`;
       });
       utils.printToDom('boards', domString);
+      $('#boards').on('click', '.show-pins', displayPins);
     })
     .catch((error) => console.error(error));
 };
 
-const checkUserLoginStatus = () => {
-  firebase.auth().onAuthStateChanged((user) => {
-    console.log(user);
-    if (user) {
-      authDiv.addClass('hide');
-      boardsDiv.removeClass('hide');
-      logoutBtn.removeClass('hide');
-      titleDiv.addClass('hide');
-      buildBoards(user.uid);
-    } else {
-      authDiv.removeClass('hide');
-      titleDiv.removeClass('hide');
-      logoutBtn.addClass('hide');
-      boardsDiv.addClass('hide');
-    }
-  });
-};
-
-$('body').on('click', '.card-boards', (e) => {
-  const singleBoard = boardsData.getBoardsByUid(e.target.id);
-  console.log('test');
-  utils.printToDom('boards', '');
-  utils.printToDom('single', singleBoard);
-});
-
-export default { checkUserLoginStatus, buildBoards };
+export default { buildBoards };
