@@ -17,6 +17,7 @@ const selectedBoard = (boardId) => {
             <div class="card-body text-center">
               <h5 class="card-title">${pin.name}</h5>
               <img src="${pin.imgUrl}" class="card-img-top" alt="...">
+              <button type="button" class="btn btn-danger delete ${boardId}">Delete Me</button>
               <p class="card-text"></p>
             </div>
           </div>`;

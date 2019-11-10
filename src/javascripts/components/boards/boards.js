@@ -6,6 +6,7 @@ import boardsData from '../../helpers/data/boardsData';
 import selectedBoard from '../singleBoard/singleBoard';
 import utils from '../../helpers/utils';
 
+
 const displayPins = (e) => {
   const boardId = e.target.id;
   selectedBoard.selectedBoard(boardId);
