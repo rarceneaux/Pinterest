@@ -3,8 +3,8 @@ import boards from './boards';
 
 const returnToBoards = () => {
   $('body').on('click', '.retBtn', () => {
-    $('#single').html = '';
-    $('#board2').html = '';
+    document.getElementById('single').innerHTML = '';
+    document.getElementById('boards2').innerHTML = '';
     boards.buildBoards();
   });
 };
