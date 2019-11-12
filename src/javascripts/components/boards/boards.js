@@ -5,11 +5,23 @@ import './boards.scss';
 import boardsData from '../../helpers/data/boardsData';
 import selectedBoard from '../singleBoard/singleBoard';
 import utils from '../../helpers/utils';
-
+import pinsData from '../../helpers/data/pinsData';
 
 const displayPins = (e) => {
   const boardId = e.target.id;
   selectedBoard.selectedBoard(boardId);
+};
+
+const deleteABoard = (e) => {
+  e.preventDefault();
+  const { uid } = firebase.auth().currentUser;
+  pinsData.bothPinAndBoard(e.target.id);
+  boardsData.deleteBoard(e.target.id)
+    .then(() => {
+      // eslint-disable-next-line no-use-before-define
+      buildBoards(uid);
+    })
+    .catch((error) => console.error(error));
 };
 
 const buildBoards = () => {
@@ -24,12 +36,14 @@ const buildBoards = () => {
           <h5 class="card-title">${board.name}</h5>
           <img src="${board.img}" class="card-img-top" alt="...">
           <p class="card-text"${board.uid}></p>
-          <button type="button" id="${board.id}" class="btn btn-primary show-pins">Pins</button>
+          <button type="button" id="${board.id}" class="btn btn-danger  delete-board"> Delete Board</button>
+          <button type="button" id="${board.id}" class="btn btn-primary show-pins"> View Pins</button>
         </div>
       </div>`;
       });
       utils.printToDom('boards', domString);
       $('#boards').on('click', '.show-pins', displayPins);
+      $('#boards').on('click', '.delete-board', deleteABoard);
     })
     .catch((error) => console.error(error));
 };
