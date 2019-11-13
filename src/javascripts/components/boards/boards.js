@@ -15,9 +15,9 @@ const displayPins = (e) => {
 const deleteABoard = (e) => {
   e.preventDefault();
   const { uid } = firebase.auth().currentUser;
-  pinsData.bothPinAndBoard(e.target.id);
   boardsData.deleteBoard(e.target.id)
     .then(() => {
+      pinsData.bothPinAndBoard(e.target.id);
       // eslint-disable-next-line no-use-before-define
       buildBoards(uid);
     })
