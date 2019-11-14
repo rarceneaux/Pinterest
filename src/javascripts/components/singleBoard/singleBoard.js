@@ -1,8 +1,29 @@
 import $ from 'jquery';
+// import firebase from 'firebase';
+// import 'firebase/auth';
 import pinsData from '../../helpers/data/pinsData';
 import boardsData from '../../helpers/data/boardsData';
 import utils from '../../helpers/utils';
 import './singleBoard.scss';
+
+// const addNewPin = (e) => {
+//   e.stopImmediatePropagation();
+//   const { uid } = firebase.auth().currentUser;
+//   const newPin = {
+//     name: $('#pin-name').val(),
+//     boardId: $('.board-title')[0].id,
+//     url: $('#url').val(),
+//     imgUrl: $('#pin-image-url').val(),
+//     uid,
+//   };
+//   pinsData.addNewPin(newPin)
+//     .then(() => {
+//       $('#exampleModal').modal('hide');
+//       // eslint-disable-next-line no-use-before-define
+//       selectedBoard(uid);
+//     })
+//     .catch((error) => console.error(error));
+// };
 
 const deletePins = (e) => {
   e.preventDefault();
@@ -26,7 +47,7 @@ const selectedBoard = (boardId) => {
         .then((pins) => {
           console.log('pins', pins);
           let domString = '<div id="singles" class="d-flex flex-wrap justify-content-between container">';
-          domString += `<p class="board-title">${board.name}</p>`;
+          domString += `<p id="${boardId}" class="board-title">${board.name}</p>`;
           pins.forEach((pin) => {
             domString += `<div class="singles-div">
             <div class="card-body text-center">
@@ -44,7 +65,7 @@ const selectedBoard = (boardId) => {
   const domString = '<button type="button"  class="btn btn-success retBtn">Return Boards</button>';
   utils.printToDom('boards2', domString);
   $('body').on('click', '.delete', (e) => deletePins(e));
+  // $('#add-new-pin').on('click', addNewPin);
 };
-
 
 export default { selectedBoard };
