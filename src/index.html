@@ -62,5 +62,37 @@
       </div>
     </div>
   </div>
+  <div class="modal fade" id="exampleModal1" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">New Board</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <form>
+            <div class="form-group">
+              <label for="board-name">Name</label>
+              <input type="text" class="form-control" id="board-name" placeholder="Board Name">
+            </div>
+            <div class="form-group">
+              <label for="board-img">Board Image</label>
+              <input type="text" class="form-control" id="board-img" placeholder="Board Img">
+            </div>
+            <div class="form-group">
+              <label for="board-id">Board ID</label>
+              <input type="text" class="form-control" id="board-id" placeholder="Board ">
+            </div>
+          </form>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+          <button type="button" class="btn btn-primary" id="add-new-board">Save changes</button>
+        </div>
+      </div>
+    </div>
+  </div>
 </body>
 </html>
