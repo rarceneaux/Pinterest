@@ -14,8 +14,8 @@ const init = () => {
   auth.loginBtn();
   home.logoutEvent();
   authData.checkUserLoginStatus();
-  pinsData.getPinsByBoardId('board3');
-  boardsData.getBoardByBoardId('board4').then();
+  pinsData.getPinsByBoardId('boardId');
+  boardsData.getBoardByBoardId('boardId').then();
   returnToBoards.returnToBoards();
 };
 init();

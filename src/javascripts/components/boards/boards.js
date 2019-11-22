@@ -37,7 +37,7 @@ const addNewBoard = (e) => {
     .then(() => {
       $('#exampleModal').modal('hide');
       // eslint-disable-next-line no-use-before-define
-      buildBoards(uid);
+      buildBoards();
     })
     .catch((error) => console.error(error));
 };

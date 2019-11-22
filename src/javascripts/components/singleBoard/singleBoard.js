@@ -45,7 +45,6 @@ const selectedBoard = (boardId) => {
     .then((board) => {
       pinsData.getPinsByBoardId(boardId)
         .then((pins) => {
-          console.log('pins', pins);
           let domString = '<div id="singles" class="d-flex flex-wrap justify-content-between container">';
           domString += `<p id="${boardId}" class="board-title">${board.name}</p>`;
           pins.forEach((pin) => {
