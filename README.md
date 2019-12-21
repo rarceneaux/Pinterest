@@ -4,7 +4,7 @@ Description
 This application is a low MVP of the social media sharing Pinterest website/app. A user can add or delete a board as well as update what board a pin belongs too.
 
 ## Screen Shots
-![](src/assets/images/Pinterest.png)
+![](https://raw.githubusercontent.com/rarceneaux/Pinterest/master/src/assets/images/Pinterest.png)
 
 ## How to Run:
   * Clone this project from Github:
