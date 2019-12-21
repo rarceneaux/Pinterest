@@ -40,7 +40,7 @@ const deletePins = (e) => {
     .catch((error) => console.error(error));
 };
 
-const testShitOut = (e) => {
+const testOut = (e) => {
   console.log(e);
 };
 
@@ -63,7 +63,7 @@ const selectedBoard = (boardId) => {
           });
           utils.printToDom('boards', '');
           utils.printToDom('single', domString);
-          $('.edit-pin').click(testShitOut);
+          $('.edit-pin').click(testOut);
         });
     });
   let domString = '<button type="button"  class="btn btn-success retBtn">Return Boards</button>';
