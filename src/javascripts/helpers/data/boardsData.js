@@ -6,6 +6,7 @@ const baseUrl = apiKeys.firebaseKeys.databaseURL;
 const getBoardsByUid = (uid) => new Promise((resolve, reject) => {
   axios.get(`${baseUrl}/boards.json?orderBy="uid"&equalTo="${uid}"`)
     .then((response) => {
+      console.log(response);
       const daBoards = response.data;
       const boards = [];
       Object.keys(daBoards).forEach((fbId) => {
@@ -30,9 +31,12 @@ const deleteBoard = (boardId) => axios.delete(`${baseUrl}/boards/${boardId}.json
 
 const addNewBoard = (newBoard) => axios.post(`${baseUrl}/boards.json`, newBoard);
 
+const updateBoard = (boardId, updatedBoard) => axios.put(`${baseUrl}/boards/${boardId}.json`, updatedBoard);
+
 export default {
   getBoardsByUid,
   getBoardByBoardId,
   deleteBoard,
   addNewBoard,
+  updateBoard,
 };

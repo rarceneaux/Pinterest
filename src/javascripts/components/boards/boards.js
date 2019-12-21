@@ -24,6 +24,12 @@ const deleteABoard = (e) => {
     .catch((error) => console.error(error));
 };
 
+// const editBoard = (e) => {
+
+
+// };
+
+
 const addNewBoard = (e) => {
   e.stopImmediatePropagation();
   const { uid } = firebase.auth().currentUser;
@@ -37,7 +43,7 @@ const addNewBoard = (e) => {
     .then(() => {
       $('#exampleModal').modal('hide');
       // eslint-disable-next-line no-use-before-define
-      buildBoards();
+      buildBoards(uid);
     })
     .catch((error) => console.error(error));
 };

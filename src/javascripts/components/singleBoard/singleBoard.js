@@ -40,25 +40,30 @@ const deletePins = (e) => {
     .catch((error) => console.error(error));
 };
 
+const testOut = (e) => {
+  console.log(e);
+};
+
 const selectedBoard = (boardId) => {
   boardsData.getBoardByBoardId(boardId)
     .then((board) => {
       pinsData.getPinsByBoardId(boardId)
         .then((pins) => {
-          let domString = '<div id="singles" class="d-flex flex-wrap justify-content-between container">';
-          domString += `<p id="${boardId}" class="board-title">${board.name}</p>`;
+          let domString = '<div id="singles" class="d-flex flex-wrap container">';
+          domString += `<p id="${boardId}" class="board-title" d-flex>${board.name}</p>`;
+          domString += `<p id="${boardId}" class="board-title" d-flex></p>`;
           pins.forEach((pin) => {
             domString += `<div class="singles-div">
             <div class="card-body text-center">
               <h5 class="card-title">${pin.name}</h5>
               <img src="${pin.imgUrl}" class="card-img-top" alt="...">
               <button type="button" class="btn btn-danger delete" boardInfo="${pin.boardId}" id=${pin.id}>Delete Me</button>
-              <p class="card-text"></p>
-            </div>
+              <button type="button" id="${pin.id}"  boardInfo="${pin.boardId}" class="btn btn-warning edit-pin">Edit Pin</button>
           </div>`;
           });
           utils.printToDom('boards', '');
           utils.printToDom('single', domString);
+          $('.edit-pin').click(testOut);
         });
     });
   let domString = '<button type="button"  class="btn btn-success retBtn">Return Boards</button>';
